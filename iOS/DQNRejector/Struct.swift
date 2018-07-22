@@ -12,6 +12,19 @@ struct Balance: Codable {
     let result : String
 }
 
-struct Login: Codable {
-    let loginUrl : String
+struct DQNString: Codable {
+    let result : String
+}
+
+struct DQNUser: Codable {
+    let address : String
+    let name : String
+}
+
+struct CheckAdmin: Codable {
+    let result : Bool
+}
+
+struct User {
+    let address : String
 }

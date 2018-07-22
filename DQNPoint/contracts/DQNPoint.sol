@@ -151,6 +151,7 @@ contract Ownable {
 contract ControlledByServiceProvider is Ownable {
   address[] public serviceProviders;
   mapping(address => bool) public isServiceProvider;
+  mapping(address => string) public providerOf;
 
   event AddedServiceProvider(address indexed newServiceProvider);
 
@@ -164,12 +165,14 @@ contract ControlledByServiceProvider is Ownable {
     _;
   }
 
-  function addServiceProvider(address _newServiceProvider) onlyOwner external {
+  function addServiceProvider(address _newServiceProvider, string _service) onlyOwner external {
     require(_newServiceProvider != address(0));
     serviceProviders.push(_newServiceProvider);
     isServiceProvider[_newServiceProvider] = true;
+    providerOf[_newServiceProvider] = _service;
     emit AddedServiceProvider(_newServiceProvider);
   }
+
 }
 // File: openzeppelin-solidity/contracts/token/ERC20/BurnableToken.sol
 

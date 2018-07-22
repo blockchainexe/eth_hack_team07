@@ -5,7 +5,7 @@ const firebase = require('./common/firebase')
 const code = require('./common/code')
 const client = require('./common/client')
 const abi = require('ethereumjs-abi')
-const DQNPointContractAddress = '0x8da2c983adced3f37a9c06382ba38590be747b0f';
+const DQNPointContractAddress = '0x2cc71df5db0309271eb8de74a19eeae6fbbe5f86';
 
 module.exports = firebase.functions.https.onRequest((req, res) => {
   const data = abi.simpleEncode("balanceOf(address):(uint256)", req.body.address);
